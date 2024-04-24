@@ -20,7 +20,7 @@ import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.Map;
 import java.util.Set;
-
+import com.google.j2objc.annotations.Weak;
 /**
  * A class representing an object type in Json. An object consists of name-value pairs where names
  * are strings, and values are any other type of {@link JsonElement}. This allows for a creating a
@@ -30,6 +30,8 @@ import java.util.Set;
  * @author Joel Leitch
  */
 public final class JsonObject extends JsonElement {
+
+  @Weak
   private final LinkedTreeMap<String, JsonElement> members =
       new LinkedTreeMap<String, JsonElement>();
 

@@ -1,3 +1,25 @@
+# Fabulous fork
+
+This fork is a copy of the original Gson repository with the following changes:
+
+- `FieldNamingStrategy` interface has a new default method `translateNameWithAlternatives()` that can be overridden so
+  that we can create a universal deserializer which supports camelCase and `snake_case` naming conventions when
+  deserializing
+- `ReflectiveTypeAdapterFactory` uses `fieldNamingPolicy.translateNameWithAlternatives()` to consider alternative json
+  field names when deserializing
+- updated source version to 1.8
+- added dependency to `com.google.j2objc:j2objc-annotations:1.3` and used @Weak and @WeakOuter annotations to avoid
+  memory leaks in j2objc
+
+## Building gson and using it in Fabulous Core project
+
+1. Gson is built using maven. Run the following command to build the project:
+   ```shell
+   mvn source:jar package
+   ```
+2. this will create a `gson-2.8.8.jar` and `gson-2.8.9-sources.jar` files in the `target` directory
+3. copy the above files to `fabulous-core/libs/` directory in the Fabulous Core project
+
 # Gson
 
 Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object.
