@@ -40,6 +40,14 @@ public interface FieldNamingStrategy {
      */
     public String translateName(Field f);
 
+    /**
+     * Translates the field name into its alternative JSON field name representations, Gson will use the first existing
+     * JSON field name when deserialising the object. When serialising, the frist value will be used.
+     *
+     * @param f the field object that we are translating
+     * @return list of the translated field names that will be checked during deserialisation. For serialization only
+     * the first oe will be used.
+     */
     default public List<String> translateNameWithAlternatives(Field f) {
         return Collections.singletonList(translateName(f));
     }

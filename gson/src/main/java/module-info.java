@@ -12,7 +12,6 @@ module com.google.gson {
 	// Optional dependency on java.sql
 	requires static j2objc.annotations;
 	requires static java.sql;
-	// requires static java.annotation;
 	// Optional dependency on jdk.unsupported for JDK's sun.misc.Unsafe
 	requires static jdk.unsupported;
 }
