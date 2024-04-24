@@ -31,6 +31,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import com.google.j2objc.annotations.WeakOuter;
 
 /**
  * A map of comparable keys to values. Unlike {@code TreeMap}, this class uses
@@ -455,6 +456,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
   }
 
   private EntrySet entrySet;
+
   private KeySet keySet;
 
   @Override public Set<Entry<K, V>> entrySet() {
@@ -794,6 +796,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
   }
 
+  @WeakOuter
   final class EntrySet extends AbstractSet<Entry<K, V>> {
     @Override public int size() {
       return size;
@@ -829,6 +832,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
   }
 
+  @WeakOuter
   final class KeySet extends AbstractSet<K> {
     @Override public int size() {
       return size;

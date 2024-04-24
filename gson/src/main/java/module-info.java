@@ -8,9 +8,11 @@ module com.google.gson {
 	exports com.google.gson.reflect;
 	exports com.google.gson.stream;
 
-	// Optional dependency on java.sql
-	requires static java.sql;
 
+	// Optional dependency on java.sql
+	requires static j2objc.annotations;
+	requires static java.sql;
+	// requires static java.annotation;
 	// Optional dependency on jdk.unsupported for JDK's sun.misc.Unsafe
 	requires static jdk.unsupported;
 }
