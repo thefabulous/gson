@@ -45,8 +45,8 @@ public interface FieldNamingStrategy {
      * JSON field name when deserialising the object. When serialising, the frist value will be used.
      *
      * @param f the field object that we are translating
-     * @return list of the translated field names that will be checked during deserialisation. For serialization only
-     * the first oe will be used.
+     * @return list of the translated field names that will be checked during deserialisation.
+     * For serialization only the first one will be used.
      */
     default public List<String> translateNameWithAlternatives(Field f) {
         return Collections.singletonList(translateName(f));
