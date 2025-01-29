@@ -31,7 +31,7 @@ import java.util.LinkedHashMap;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import com.google.j2objc.annotations.WeakOuter;
-
+import com.google.j2objc.annotations.Weak;
 /**
  * A map of comparable keys to values. Unlike {@code TreeMap}, this class uses
  * insertion order for iteration order. Comparison order is only used as an
@@ -443,11 +443,11 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
   @WeakOuter
   static final class Node<K, V> implements Entry<K, V> {
-    Node<K, V> parent;
+    @Weak Node<K, V> parent;
     Node<K, V> left;
     Node<K, V> right;
-    Node<K, V> next;
-    Node<K, V> prev;
+    @Weak Node<K, V> next;
+    @Weak Node<K, V> prev;
     final K key;
     V value;
     int height;
@@ -459,7 +459,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     /** Create a regular entry */
-    Node(Node<K, V> parent, K key, Node<K, V> next, Node<K, V> prev) {
+    Node(Node<K, V> parent, K key, @Weak Node<K, V> next, @Weak Node<K, V> prev) {
       this.parent = parent;
       this.key = key;
       this.height = 1;
