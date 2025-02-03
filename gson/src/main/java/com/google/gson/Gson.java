@@ -57,6 +57,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.stream.MalformedJsonException;
+import com.google.j2objc.annotations.WeakOuter;
 
 /**
  * This is the main class for using Gson. Gson is typically used by first constructing a
@@ -1034,6 +1035,7 @@ public final class Gson {
     return (T) fromJson(new JsonTreeReader(json), typeOfT);
   }
 
+  @WeakOuter
   static class FutureTypeAdapter<T> extends TypeAdapter<T> {
     private TypeAdapter<T> delegate;
 
